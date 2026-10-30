@@ -13,6 +13,19 @@ public class ProductService {
     public ProductService() {
         products.add(new DigitalProduct(nextId++, "Clean Code (E-book)", 29.99,"/downloads/clean-code.pdf",4.2));
         products.add(new PhysicalProduct(nextId++, "27-inch Monitor", 249.99, 5.4, "61cm x 41cm x 18cm"));
+
+
+        DigitalProduct digitalProduct = new DigitalProduct(nextId++, "Clean Code (E-book)", 29.99,"/downloads/clean-code.pdf",4.2);
+        digitalProduct.applyDiscount(20);
+
+        PhysicalProduct physicalProduct = new PhysicalProduct(nextId++, "27-inch Monitor", 249.99, 5.4, "61cm x 41cm x 18cm");
+        physicalProduct.applyDiscount(20);
+
+        products.add(digitalProduct);
+        products.add(physicalProduct);
+
+
+
     }
 
     public List<Product> getAllProducts() {
