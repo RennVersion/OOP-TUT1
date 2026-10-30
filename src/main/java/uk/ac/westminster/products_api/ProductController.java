@@ -22,7 +22,7 @@ public class ProductController {
     }
 
     @PostMapping("/products")
-    public Product addProduct(@RequestBody Product product) {
+    public Product addProduct(@RequestBody DigitalProduct product) { // changed to digital due to smol error when product is abstract
         return productService.addProduct(product);
     }
 
