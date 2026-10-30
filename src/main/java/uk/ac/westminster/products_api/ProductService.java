@@ -23,9 +23,6 @@ public class ProductService {
 
         products.add(digitalProduct);
         products.add(physicalProduct);
-
-
-
     }
 
     public List<Product> getAllProducts() {
