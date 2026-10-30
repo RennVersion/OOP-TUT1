@@ -2,9 +2,10 @@ package uk.ac.westminster.products_api;
 
 // A PhysicalProduct IS-A Product because Product is declared as a parent of it
 
-public class PhysicalProduct extends Product {
+public class PhysicalProduct extends Product implements Discountable {
     private double weightKg;
     private String dimensions;
+    private double discountedPrice;
 
     public PhysicalProduct() {}
 
@@ -27,5 +28,16 @@ public class PhysicalProduct extends Product {
     public String getSummary() {
         return "Physical: "+getName()
                 + " | Download: "+weightKg;
+    }
+
+    @Override
+    public void applyDiscount(double rate) {
+        double capped = Math.min(rate, 0.20);
+        discountedPrice = getPrice() * (1 - capped);
+    }
+
+    @Override
+    public double getDiscountedPrice() {
+        return discountedPrice;
     }
 }
